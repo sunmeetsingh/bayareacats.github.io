@@ -1,0 +1,20 @@
+<!-- Header -->
+<header id="header" class="skel-layers-fixed">
+    <h1><a href="{{ site.baseurl }}/" class="site-title" >{{ site.title }}</a></h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="{{ site.baseurl }}/">Home</a></li>
+            <li><a href="{{ site.baseurl }}/resources.html">Resources</a></li>
+            <li><a href="{{ site.baseurl }}/trapping.html">Trapping</a></li>
+            <li><a href="{{ site.baseurl }}/kitten-care.html">Kitten Care</a></li>
+            <li><a href="{{ site.baseurl }}/success-stories.html">Sucess Stories</a></li>
+            <li><a href="{{ site.baseurl }}/contact.html">Contact</a></li>
+            {% for page in site.pages %}
+                  {% if page.title %}
+                    <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+                  {% endif %}
+            {% endfor %}
+            <li><a href="#" class="button special">Sign Up</a></li>
+        </ul>
+    </nav>
+</header>
