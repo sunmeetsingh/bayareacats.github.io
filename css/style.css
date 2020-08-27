@@ -17,13 +17,13 @@
 	body, input, select, textarea {
 		color: #555f66;
 		font-family: "Roboto", Helvetica, sans-serif;
-		font-size: 14pt;
+		font-size: 15pt;
 		font-weight: 300;
 		line-height: 1.75em;
 	}
 
 	a {
-		color: #629DD1;
+		color: #34515e;
 		text-decoration: underline;
 	}
 
@@ -32,7 +32,7 @@
 		}
 
 	strong, b, .cc-active {
-		color: #666f77;
+		color: #2b2b2b;
 		font-weight: 500;
 	}
 
@@ -45,7 +45,7 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #666f77;
+		color: #2b2b2b;
 		font-weight: 300;
 		line-height: 1em;
 		margin: 0 0 1em 0;
@@ -59,32 +59,32 @@
 		}
 
 	h2 {
-		font-size: 1.5em;
+		font-size: 1.7em;
 		line-height: 1.5em;
 	}
 
 	h3 {
-		font-size: 1.25em;
+		font-size: 1.4em;
 		line-height: 1.5em;
 	}
 
 	h4 {
-		font-size: 1em;
+		font-size: 1.2em;
 		line-height: 1.5em;
 	}
 
 	h5 {
-		font-size: 0.9em;
+		font-size: 1.1em;
 		line-height: 1.5em;
 	}
 
 	h6 {
-		font-size: 0.7em;
+		font-size: 1.0em;
 		line-height: 1.5em;
 	}
 
 	sub {
-		font-size: 0.8em;
+		font-size: 0.9em;
 		position: relative;
 		top: 0.5em;
 	}
@@ -163,7 +163,7 @@
 	}
 
 	header p {
-		color: #bbb;
+		color: #555344;
 		position: relative;
 		margin: 0 0 1.5em 0;
 	}
@@ -209,7 +209,7 @@
 	}
 
 	label {
-		color: #666f77;
+		color: #2b2b2b;
 		display: block;
 		font-size: 0.9em;
 		font-weight: 500;
@@ -647,7 +647,7 @@
 		}
 
 		table th {
-			color: #666f77;
+			color: #2b2b2b;
 			font-size: 0.9em;
 			font-weight: 500;
 			padding: 0 0.75em 0.75em 0.75em;
@@ -782,7 +782,7 @@
 		.button.alt {
 			background-color: transparent;
 			box-shadow: inset 0 0 0 1px rgba(144, 144, 144, 0.25);
-			color: #666f77 !important;
+			color: #2b2b2b !important;
 		}
 
 			input[type="submit"].alt:hover,
@@ -850,12 +850,12 @@
 
 		.wrapper.style1 {
 			background: #fff;
-			color: #555f66;
+			color: #555344;
 		}
 
 		.wrapper.style2 {
 			background: #192024;
-			color: #c5c7c8;
+			color: #555344;
 		}
 
 			.wrapper.style2 h2, .wrapper.style2 h3, .wrapper.style2 h4, .wrapper.style2 h5, .wrapper.style2 h6 {
@@ -863,7 +863,7 @@
 			}
 
 			.wrapper.style2 header p {
-				color: #a3a5a7;
+				color: #555344;
 			}
 
 			.wrapper.style2 .button.alt {
@@ -904,7 +904,7 @@
 	}
 
 		#header h1 {
-			color: #666f77;
+			color: #2b2b2b;
 			font-weight: 500;
 			height: inherit;
 			left: 1.25em;
@@ -989,7 +989,7 @@
 		background-size: cover;
 		background-position: center center;
 		background-repeat: no-repeat;
-		color: #d8d8d8;
+		color: #ffffff;
 		padding: 14em 0;
 		text-align: center;
 		position: relative;
@@ -1068,7 +1068,7 @@
 		}
 
 		#footer .copyright {
-			color: #bbb;
+			color: #555344;
 			font-size: 0.9em;
 			margin: 2em 0 0 0;
 			padding: 0;
@@ -1090,7 +1090,7 @@
 				}
 
 		#footer .icons a {
-			color: #bbb;
+			color: #555344;
 		}
 
 
