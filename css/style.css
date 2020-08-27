@@ -163,7 +163,7 @@
 	}
 
 	header p {
-		color: #555344;
+		color: #000;
 		position: relative;
 		margin: 0 0 1.5em 0;
 	}
@@ -850,12 +850,12 @@
 
 		.wrapper.style1 {
 			background: #fff;
-			color: #555344;
+			color: #000;
 		}
 
 		.wrapper.style2 {
 			background: #192024;
-			color: #555344;
+			color: #000;
 		}
 
 			.wrapper.style2 h2, .wrapper.style2 h3, .wrapper.style2 h4, .wrapper.style2 h5, .wrapper.style2 h6 {
@@ -863,7 +863,7 @@
 			}
 
 			.wrapper.style2 header p {
-				color: #555344;
+				color: #000;
 			}
 
 			.wrapper.style2 .button.alt {
@@ -1068,7 +1068,7 @@
 		}
 
 		#footer .copyright {
-			color: #555344;
+			color: #000;
 			font-size: 0.9em;
 			margin: 2em 0 0 0;
 			padding: 0;
@@ -1090,7 +1090,7 @@
 				}
 
 		#footer .icons a {
-			color: #555344;
+			color: #000;
 		}
 
 
