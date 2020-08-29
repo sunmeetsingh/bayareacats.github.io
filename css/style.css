@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url(font-awesome.min.css);
-@import url("http://fonts.googleapis.com/css?family=Roboto:wght@300;400");
+@import url("http://fonts.googleapis.com/css?family=Roboto:500,300");
 
 /*
 	Ion by TEMPLATED
@@ -46,14 +46,19 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #2b2b2b;
-		font-weight: 400;
+		font-weight: 300;
 		line-height: 1em;
-		margin: 0 0 1em 0;
+		/*argin: 0 0 0.2em 0;
+
+	}
+
+	h1, h2 {*/
 		text-transform: uppercase;
+		margin: 0 0 1em 0;
 		letter-spacing: 0.125em;
 	}
 
-		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		h1 a, h2 a {
 			color: inherit;
 			text-decoration: none;
 		}
@@ -64,7 +69,7 @@
 	}
 
 	h3 {
-		font-size: 1.4em;
+		font-size: 1.25em;
 		line-height: 1.5em;
 	}
 
@@ -160,6 +165,10 @@
 
 	section.special, article.special {
 		text-align: center;
+	}
+
+	.wrapper.style1 header p {
+		font-size:1.2em;
 	}
 
 	header p {
@@ -485,12 +494,25 @@
 		.image.fit {
 			display: block;
 			margin: 0 0 2em 0;
-			width: 100%;
 		}
+
+
+			.image.fit.wide img {
+				display: block;
+				width: 100%;
+				margin:auto;
+			}
 
 			.image.fit img {
 				display: block;
-				width: 100%;
+				width: 80%;
+				margin:auto;
+			}
+
+			.image.fit.small img {
+				display: block;
+				width: 50%;
+				margin:auto;
 			}
 
 /* List */
@@ -499,10 +521,12 @@
 		list-style: decimal;
 		margin: 0 0 2em 0;
 		padding-left: 1.25em;
+		/*font-size:1.1em;*/
 	}
 
 		ol li {
 			padding-left: 0.25em;
+			padding-bottom: 0.25em;
 		}
 
 	ul {
@@ -1048,7 +1072,7 @@
 		}
 
 		#banner p {
-			font-size: 1.5em;
+			font-size: 1.3em;
 			margin-bottom: 2em;
 		}
 
@@ -1154,4 +1178,9 @@
   font-size: 11px;
   font-weight: normal;
   margin: 0;
+}
+
+html {
+    visibility: visible;
+    opacity: 1;
 }
