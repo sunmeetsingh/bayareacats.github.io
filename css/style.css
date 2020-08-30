@@ -48,11 +48,6 @@
 		color: #2b2b2b;
 		font-weight: 300;
 		line-height: 1em;
-		/*argin: 0 0 0.2em 0;
-
-	}
-
-	h1, h2 {*/
 		text-transform: uppercase;
 		margin: 0 0 1em 0;
 		letter-spacing: 0.125em;
@@ -510,6 +505,12 @@
 			}
 
 			.image.fit.small img {
+				display: block;
+				width: 50%;
+				margin:auto;
+			}
+
+			.image.fit.center img {
 				display: block;
 				width: 50%;
 				margin:auto;
