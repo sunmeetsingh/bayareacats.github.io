@@ -1,3 +1,3 @@
-# cupertino-cats
+# bayareacats
 
 bundle exec jekyll serve --incremental
