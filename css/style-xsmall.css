@@ -59,14 +59,13 @@
 			}
 
 			/* Header */
-	.banner .image.fit {
+		#banner .image.fit {
 			display: block;
-			margin: 0 0 1em 0;
-			width:80%;
+			margin: 1em 0;
+			width:60%;
     	content: url("/images/bayareacats_banner_phone.png");
     	margin:auto;
 		}
-
 /* Button */
 
 	input[type="submit"],
