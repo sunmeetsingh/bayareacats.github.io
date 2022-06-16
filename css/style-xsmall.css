@@ -14,6 +14,16 @@
 		font-size: 12pt;
 	}
 
+		#footer .copyright li {
+				vertical-align:middle;
+				text-align: center;
+				list-style: none;
+				border-left: 0;
+				margin-left: 0;
+				padding-left: 0;
+				display: block;
+			}
+
 /* List */
 
 	ul.actions {
@@ -49,7 +59,7 @@
 			}
 
 			/* Header */
-	#banner .image.fit {
+	.banner .image.fit {
 			display: block;
 			margin: 0 0 1em 0;
 			width:80%;
