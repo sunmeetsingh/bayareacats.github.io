@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Quicksand:500,300");
 
 /*
@@ -54,7 +55,7 @@
 			content: "";
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: Quicksand;
+			font-family: FontAwesome;
 			font-style: normal;
 			font-weight: normal;
 			text-transform: none !important;
