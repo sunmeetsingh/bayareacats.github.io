@@ -496,6 +496,9 @@
 		.image.fit {
 			display: block;
 			margin: 0 0 2em 0;
+			width:80%;
+    	content: url("/images/bayareacats_banner.png");
+    	margin:auto;
 		}
 
 
@@ -509,6 +512,7 @@
 				display: block;
 				width: 80%;
 				margin:auto;
+
 			}
 
 			.image.fit.small img {
