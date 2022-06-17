@@ -24,7 +24,7 @@
     </script>
 
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <link rel="shortcut icon" id="favicon" type="image/x-icon" href="/images/favicon-light.ico">
+    <link rel="shortcut icon" id="favicon" type="image/x-icon" href="/images/favicon-dark.ico">
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="" />
@@ -36,7 +36,7 @@
     <script src="{{ site.baseurl }}/js/init.js"></script>
 
 
-    <<!-- script>
+    <script>
       const usesDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches || false;
       const favicon = document.getElementById("favicon");
 
@@ -50,5 +50,5 @@
 
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener( "change", (e) => switchIcon(e.matches));
       switchIcon(usesDarkMode);
-    </script> -->
+    </script>
 </head>
