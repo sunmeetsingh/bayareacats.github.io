@@ -14,15 +14,9 @@
 		font-size: 12pt;
 	}
 
-		#footer .copyright li {
-				vertical-align:middle;
-				text-align: center;
-				list-style: none;
-				border-left: 0;
-				margin-left: 0;
-				padding-left: 0;
-				display: block;
-			}
+	p {
+		margin: 0 0 3em 0;
+	}
 
 /* List */
 
@@ -58,14 +52,6 @@
 				padding-top: 0;
 			}
 
-			/* Header */
-		#banner .image.fit {
-			display: block;
-			margin: 1em 0;
-			width:60%;
-    	content: url("/images/bayareacats_banner_phone.png");
-    	margin:auto;
-		}
 /* Button */
 
 	input[type="submit"],
@@ -78,5 +64,28 @@
 /* Banner */
 
 	#banner {
-		padding: 0em;
+		padding: 1.5em 0;
+}
+
+#banner .image.fit {
+	display: block;
+	width:60%;
+	content: url("/images/bayareacats_banner_phone.png");
+	margin:auto;
+}
+
+	.wrapper {
+		padding: 2em 0;
 	}
+
+/* Footer */
+
+#footer .copyright li {
+	vertical-align:middle;
+	text-align: center;
+	list-style: none;
+	border-left: 0;
+	margin-left: 0;
+	padding-left: 0;
+	display: block;
+}
