@@ -3,7 +3,7 @@ title: Bay Area Cats
 email: bayareaTNR@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   A compilation of resources, rescue organizations, and veterinary support for trapping feral
-  cats for trap-neuter-return (TNR) and rescuing kittens. Includes detailed instructions on how and where to get traps in 
+  and community cats for trap-neuter-return (TNR) and rescuing kittens. Includes detailed instructions on how and where to get traps in 
   the South Bay Area in California.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://bayareacats.org" # the base hostname & protocol for your site
