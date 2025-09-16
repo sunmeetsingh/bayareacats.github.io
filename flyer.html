@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Flyer Download
-permalink: /flyer.html
+permalink: /flyer/
 ---
 
 <main class="page-content" aria-labelledby="flyer-download-title">
@@ -12,44 +12,68 @@ permalink: /flyer.html
   </div>
 </main>
 
+<!-- No-JS fallback: immediate redirect to the PDF -->
+<noscript>
+  <meta http-equiv="refresh" content="0; url={{ '/resources/flyer.pdf' | relative_url }}">
+</noscript>
+
 <script>
   (function () {
     const redirectUrl = "{{ '/resources/flyer.pdf' | relative_url }}";
-    var redirectDelayMax = 1000;
-    
+    const callbackFallbackMs = 800;   // wait for GA event callback
+    const hardFallbackMs     = 1500;  // absolute max wait before redirect
 
-    function triggerRedirect() {
+    function go() {
       let redirected = false;
-      // Safety fallback in case the callback never fires
-      const fallback = setTimeout(() => {
-        if (!redirected) location.href = redirectUrl;
-      }, 800); // 600–1000ms is a good range
 
-      
-      if (typeof gtag === 'function') {
-        // Custom event you can mark as a conversion
-        gtag('event', 'flyer_view', {
-          flyer_id: 'brochure2025',
-          // event_callback fires ASAP once GA queues the hit
-          event_callback: function() {
+      // Hard fallback: always redirect after hardFallbackMs
+      const hard = setTimeout(function () {
+        if (!redirected) {
+          redirected = true;
+          window.location.href = redirectUrl;
+        }
+      }, hardFallbackMs);
+
+      // If gtag exists, send event and redirect on callback
+      if (typeof window.gtag === 'function') {
+        const soft = setTimeout(function () {
+          // If GA was slow, still go after callbackFallbackMs
+          if (!redirected) {
             redirected = true;
-            clearTimeout(fallback);
-            location.href = redirectUrl;
+            clearTimeout(hard);
+            window.location.href = redirectUrl;
+          }
+        }, callbackFallbackMs);
+
+        window.gtag('event', 'flyer_view', {
+          flyer_id: 'brochure2025',
+          event_callback: function () {
+            if (!redirected) {
+              redirected = true;
+              clearTimeout(soft);
+              clearTimeout(hard);
+              window.location.href = redirectUrl;
+            }
           },
-          event_timeout: 700 // ensures callback fires even if GA is slow
+          event_timeout: callbackFallbackMs - 100 // ensures callback fires
         });
+      } else {
+        // No GA on page: just redirect quickly
+        setTimeout(function () {
+          if (!redirected) {
+            redirected = true;
+            clearTimeout(hard);
+            window.location.href = redirectUrl;
+          }
+        }, 200);
       }
-      
-      // Fallback redirect if all else fails.
-      setTimeout(function () {
-        window.location.href = redirectUrl;
-      }, redirectDelay);
     }
 
-    if (document.readyState === 'complete') {
-      triggerRedirect();
+    // Fire as soon as DOM is ready (faster than 'load')
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', go);
     } else {
-      window.addEventListener('load', triggerRedirect);
+      go();
     }
   })();
 </script>
