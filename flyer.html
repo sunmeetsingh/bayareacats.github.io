@@ -14,12 +14,30 @@ permalink: /flyer.html
 
 <script>
   (function () {
-    var redirectUrl = "{{ '/resources/flyer.pdf' | relative_url }}";
-    var redirectDelay = 300;
+    const redirectUrl = "{{ '/resources/flyer.pdf' | relative_url }}";
+    var redirectDelay = 1000;
+    
 
     function triggerRedirect() {
+      let redirected = false;
+      // Safety fallback in case the callback never fires
+      const fallback = setTimeout(() => {
+        if (!redirected) location.href = redirectUrl;
+      }, 800); // 600–1000ms is a good range
+
+      
       if (typeof gtag === 'function') {
-        gtag('event', 'flyer_download', { event_category: 'PDF' });
+        // Custom event you can mark as a conversion
+        gtag('event', 'flyer_view', {
+          flyer_id: 'brochure2025',
+          // event_callback fires ASAP once GA queues the hit
+          event_callback: function() {
+            redirected = true;
+            clearTimeout(fallback);
+            location.href = redirectUrl;
+          },
+          event_timeout: 700 // ensures callback fires even if GA is slow
+        });
       }
 
       setTimeout(function () {
