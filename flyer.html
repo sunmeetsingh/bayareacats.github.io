@@ -15,7 +15,7 @@ permalink: /flyer.html
 <script>
   (function () {
     const redirectUrl = "{{ '/resources/flyer.pdf' | relative_url }}";
-    var redirectDelay = 1000;
+    var redirectDelayMax = 1000;
     
 
     function triggerRedirect() {
@@ -39,7 +39,8 @@ permalink: /flyer.html
           event_timeout: 700 // ensures callback fires even if GA is slow
         });
       }
-
+      
+      // Fallback redirect if all else fails.
       setTimeout(function () {
         window.location.href = redirectUrl;
       }, redirectDelay);
