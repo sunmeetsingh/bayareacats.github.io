@@ -1,6 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="refresh" content="0; URL=resources/flyer.pdf" />
-</head>
-</html>
+---
+layout: default
+title: Flyer Download
+permalink: /flyer.html
+---
+
+<main class="page-content" aria-labelledby="flyer-download-title">
+  <div class="wrapper">
+    <h1 id="flyer-download-title">Flyer Download</h1>
+    <p>You should be redirected to the Bay Area Cats flyer automatically. If that doesn't happen, please use the link below.</p>
+    <p><a href="{{ '/resources/flyer.pdf' | relative_url }}">Download the flyer directly</a>.</p>
+  </div>
+</main>
+
+<script>
+  (function () {
+    var redirectUrl = "{{ '/resources/flyer.pdf' | relative_url }}";
+    var redirectDelay = 300;
+
+    function triggerRedirect() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'flyer_download', { event_category: 'PDF' });
+      }
+
+      setTimeout(function () {
+        window.location.href = redirectUrl;
+      }, redirectDelay);
+    }
+
+    if (document.readyState === 'complete') {
+      triggerRedirect();
+    } else {
+      window.addEventListener('load', triggerRedirect);
+    }
+  })();
+</script>
