@@ -37,7 +37,7 @@
       const favicon = document.getElementById("favicon");
 
       function switchIcon(usesDarkMode) {
-        if (usesDarkMode) { 
+        if (usesDarkMode) {
           favicon.href = '/images/favicon-dark.ico';
         } else {
           favicon.href = '/images/favicon-light.ico';
@@ -47,4 +47,66 @@
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener( "change", (e) => switchIcon(e.matches));
       switchIcon(usesDarkMode);
     </script>
+
+    {% assign redirect_url = page.redirect_url %}
+    {% if redirect_url %}
+        {% assign redirect_url = redirect_url | relative_url %}
+        {% assign gtag_event_name = page.gtag_event_name | default: 'redirected' %}
+
+        <script>
+          (function () {
+            const redirectUrl = {{ redirect_url | jsonify }};
+            const gtagEventName = {{ gtag_event_name | jsonify }};
+            const callbackFallbackMs = 800;
+            const hardFallbackMs = 1500;
+
+            function go() {
+              let redirected = false;
+
+              const hard = setTimeout(function () {
+                if (!redirected) {
+                  redirected = true;
+                  window.location.href = redirectUrl;
+                }
+              }, hardFallbackMs);
+
+              if (typeof window.gtag === 'function' && gtagEventName) {
+                const soft = setTimeout(function () {
+                  if (!redirected) {
+                    redirected = true;
+                    clearTimeout(hard);
+                    window.location.href = redirectUrl;
+                  }
+                }, callbackFallbackMs);
+
+                window.gtag('event', gtagEventName, {
+                  event_callback: function () {
+                    if (!redirected) {
+                      redirected = true;
+                      clearTimeout(soft);
+                      clearTimeout(hard);
+                      window.location.href = redirectUrl;
+                    }
+                  },
+                  event_timeout: callbackFallbackMs - 100
+                });
+              } else {
+                setTimeout(function () {
+                  if (!redirected) {
+                    redirected = true;
+                    clearTimeout(hard);
+                    window.location.href = redirectUrl;
+                  }
+                }, 200);
+              }
+            }
+
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', go);
+            } else {
+              go();
+            }
+          })();
+        </script>
+    {% endif %}
 </head>

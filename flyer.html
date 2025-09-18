@@ -2,6 +2,8 @@
 layout: default
 title: Flyer Download
 permalink: /flyer/
+redirect_url: /resources/flyer.pdf
+gtag_event_name: flyer_view
 ---
 
 <main class="page-content" aria-labelledby="flyer-download-title">
@@ -17,63 +19,3 @@ permalink: /flyer/
   <meta http-equiv="refresh" content="0; url={{ '/resources/flyer.pdf' | relative_url }}">
 </noscript>
 
-<script>
-  (function () {
-    const redirectUrl = "{{ '/resources/flyer.pdf' | relative_url }}";
-    const callbackFallbackMs = 800;   // wait for GA event callback
-    const hardFallbackMs     = 1500;  // absolute max wait before redirect
-
-    function go() {
-      let redirected = false;
-
-      // Hard fallback: always redirect after hardFallbackMs
-      const hard = setTimeout(function () {
-        if (!redirected) {
-          redirected = true;
-          window.location.href = redirectUrl;
-        }
-      }, hardFallbackMs);
-
-      // If gtag exists, send event and redirect on callback
-      if (typeof window.gtag === 'function') {
-        const soft = setTimeout(function () {
-          // If GA was slow, still go after callbackFallbackMs
-          if (!redirected) {
-            redirected = true;
-            clearTimeout(hard);
-            window.location.href = redirectUrl;
-          }
-        }, callbackFallbackMs);
-
-        window.gtag('event', 'flyer_view', {
-          flyer_id: 'brochure2025',
-          event_callback: function () {
-            if (!redirected) {
-              redirected = true;
-              clearTimeout(soft);
-              clearTimeout(hard);
-              window.location.href = redirectUrl;
-            }
-          },
-          event_timeout: callbackFallbackMs - 100 // ensures callback fires
-        });
-      } else {
-        // No GA on page: just redirect quickly
-        setTimeout(function () {
-          if (!redirected) {
-            redirected = true;
-            clearTimeout(hard);
-            window.location.href = redirectUrl;
-          }
-        }, 200);
-      }
-    }
-
-    // Fire as soon as DOM is ready (faster than 'load')
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', go);
-    } else {
-      go();
-    }
-  })();
-</script>
