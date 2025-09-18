@@ -50,6 +50,11 @@
 
     {% assign redirect_url = page.redirect_url %}
     {% if redirect_url %}
+        
+        {% unless redirect_url contains '://' %}
+          {% assign redirect_url = redirect_url | relative_url %}
+        {% endunless %}
+    
         {% assign gtag_event_name = page.gtag_event_name | default: 'redirected' %}
 
         <script>
