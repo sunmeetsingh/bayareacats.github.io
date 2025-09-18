@@ -50,7 +50,6 @@
 
     {% assign redirect_url = page.redirect_url %}
     {% if redirect_url %}
-        {% assign redirect_url = redirect_url | relative_url %}
         {% assign gtag_event_name = page.gtag_event_name | default: 'redirected' %}
 
         <script>
